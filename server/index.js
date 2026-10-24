@@ -1,10 +1,15 @@
 const express = require('express');
 const http = require('http');
+const cors = require('cors');
 // const path = require('path');
 const { Server } = require('socket.io');
 const Room = require('./Room');
 
+
 const app = express();
+
+// Enable CORS for frontend API requests
+app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: '*' } });
 const rooms = new Map(); // roomId -> Room
@@ -141,3 +146,4 @@ io.on('connection', (socket) => {
 
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+

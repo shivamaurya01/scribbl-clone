@@ -20,15 +20,39 @@ export default function Home() {
     customWords: ''
   });
 
-  const loadRooms = () =>
-    fetch('/api/rooms/public')
-      .then(r => r.json())
-      .then(setRooms)
-      .catch(() => {});
+//   const loadRooms = () =>
+//     // fetch('/api/rooms/public')
+//     fetch(
+//   `${import.meta.env.VITE_SERVER_URL || ''}/api/rooms/public`
+// )
+//       .then(r => r.json())
+//       .then(setRooms)
+//       .catch(() => {});
 
-  useEffect(() => {
-    loadRooms();
-  }, []);
+//   useEffect(() => {
+//     loadRooms();
+//   }, []);
+
+
+
+const loadRooms = () => {
+  fetch(`${import.meta.env.VITE_SERVER_URL || ''}/api/rooms/public`)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Failed to fetch rooms');
+      }
+      return res.json();
+    })
+    .then(setRooms)
+    .catch((err) => {
+      console.error('Error loading rooms:', err);
+    });
+};
+
+useEffect(() => {
+  loadRooms();
+}, []);
+
 
   const needName = () => {
     if (!name.trim()) {
