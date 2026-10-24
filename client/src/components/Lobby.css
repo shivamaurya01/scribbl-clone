@@ -1,0 +1,515 @@
+
+/* LOBBY PAGE */
+
+.lobby-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #312e81 0%, transparent 55%),
+    #0f172a;
+  color: #f8fafc;
+  padding: 40px 20px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.lobby-page * {
+  box-sizing: border-box;
+}
+
+/* HEADER */
+
+.lobby-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.lobby-badge {
+  display: inline-block;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid #6d28d9;
+  color: #c4b5fd;
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.lobby-header h1 {
+  font-size: clamp(36px, 5vw, 52px);
+  margin: 15px 0 8px;
+  font-weight: 900;
+}
+
+.lobby-header h1 span {
+  color: #a78bfa;
+}
+
+.lobby-header p {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* CONTAINER */
+
+.lobby-container {
+  max-width: 1050px;
+  margin: auto;
+}
+
+/* ROOM CARD */
+
+.lobby-room-card,
+.lobby-card,
+.lobby-actions {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 18px;
+  padding: 25px;
+}
+
+.lobby-room-card {
+  margin-bottom: 24px;
+}
+
+.room-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.room-label {
+  color: #94a3b8;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.room-code {
+  color: #c4b5fd;
+  font-size: 35px;
+  letter-spacing: 5px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.room-type {
+  background: #312e81;
+  color: #c4b5fd;
+  border-radius: 30px;
+  padding: 9px 15px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* INVITE */
+
+.invite-section {
+  border-top: 1px solid #334155;
+  padding-top: 20px;
+}
+
+.invite-section h3 {
+  font-size: 16px;
+  margin: 0 0 7px;
+}
+
+.invite-section p {
+  color: #94a3b8;
+  font-size: 12px;
+  margin: 0 0 15px;
+}
+
+.invite-box {
+  display: flex;
+  gap: 10px;
+}
+
+.invite-box input {
+  flex: 1;
+  min-width: 0;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  border-radius: 9px;
+  padding: 13px;
+  outline: none;
+  font-size: 13px;
+}
+
+.copy-btn {
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 0 20px;
+  cursor: pointer;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.copy-btn:hover {
+  background: #7c3aed;
+}
+
+/* MAIN GRID */
+
+.lobby-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.lobby-card {
+  min-width: 0;
+}
+
+.lobby-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.lobby-card-header h2 {
+  font-size: 19px;
+  margin: 0 0 6px;
+}
+
+.lobby-card-header p {
+  color: #94a3b8;
+  font-size: 12px;
+  margin: 0;
+}
+
+.player-count {
+  background: #312e81;
+  color: #c4b5fd;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+/* PLAYER LIST */
+
+.player-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 430px;
+  overflow-y: auto;
+}
+
+.lobby-player {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 11px;
+  padding: 12px;
+  transition: 0.2s;
+}
+
+.lobby-player:hover {
+  border-color: #8b5cf6;
+}
+
+.my-player {
+  border-color: #7c3aed;
+  background: #211b46;
+}
+
+.player-avatar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background: #312e81;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+}
+
+.player-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.player-name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.you-tag {
+  background: #7c3aed;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+}
+
+.player-status {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.status-ready {
+  color: #4ade80;
+}
+
+.kick-btn {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+  padding: 8px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.kick-btn:hover {
+  background: #dc2626;
+  color: white;
+}
+
+/* EMPTY SLOTS */
+
+.empty-player {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px;
+  border: 1px dashed #334155;
+  border-radius: 11px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.empty-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #293548;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+/* SETTINGS */
+
+.lobby-settings {
+  display: flex;
+  flex-direction: column;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 0;
+  border-bottom: 1px solid #334155;
+  font-size: 13px;
+}
+
+.setting-item span {
+  color: #94a3b8;
+}
+
+.setting-item strong {
+  color: #e9d5ff;
+}
+
+.lobby-tip {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid #4c1d95;
+  border-radius: 9px;
+  padding: 13px;
+  font-size: 12px;
+  color: #c4b5fd;
+  line-height: 1.6;
+}
+
+/* ACTION SECTION */
+
+.lobby-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.lobby-actions-info {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.waiting-indicator {
+  color: #22c55e;
+  font-size: 18px;
+  animation: lobbyPulse 1.5s infinite;
+}
+
+@keyframes lobbyPulse {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.lobby-actions-info strong {
+  font-size: 14px;
+}
+
+.lobby-actions-info p {
+  color: #94a3b8;
+  font-size: 12px;
+  margin: 5px 0 0;
+}
+
+.lobby-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lobby-buttons button {
+  border: none;
+  border-radius: 9px;
+  padding: 13px 20px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.ready-btn {
+  background: #334155;
+  color: white;
+}
+
+.ready-btn.is-ready {
+  background: #16a34a;
+  color: white;
+}
+
+.start-btn {
+  background: #8b5cf6;
+  color: white;
+}
+
+.start-btn:hover {
+  background: #7c3aed;
+  transform: translateY(-2px);
+}
+
+.leave-btn {
+  background: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+  border: 1px solid #ef4444 !important;
+}
+
+.leave-btn:hover {
+  background: #dc2626;
+  color: white;
+}
+
+/* ERROR AND FOOTER */
+
+.lobby-error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 9px;
+  text-align: center;
+}
+
+.lobby-footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .lobby-page {
+    padding: 25px 15px;
+  }
+
+  .lobby-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lobby-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lobby-buttons {
+    width: 100%;
+  }
+
+  .lobby-buttons button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .room-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .invite-box {
+    flex-direction: column;
+  }
+
+  .copy-btn {
+    padding: 13px;
+  }
+
+  .lobby-room-card,
+  .lobby-card,
+  .lobby-actions {
+    padding: 18px;
+  }
+
+  .room-code {
+    font-size: 28px;
+  }
+
+  .lobby-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waiting-indicator {
+    animation: none;
+  }
+}
