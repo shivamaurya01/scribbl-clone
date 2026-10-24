@@ -1,6 +1,6 @@
 const express = require('express');
 const http = require('http');
-const path = require('path');
+// const path = require('path');
 const { Server } = require('socket.io');
 const Room = require('./Room');
 
@@ -30,10 +30,12 @@ app.get('/api/rooms/public', (req, res) => {
 });
 
 // serve the built React app (production)
-const dist = path.join(__dirname, '..', 'client', 'dist');
-app.use(express.static(dist));
-app.use((req, res) => res.sendFile(path.join(dist, 'index.html')));
-
+// const dist = path.join(__dirname, '..', 'client', 'dist');
+// app.use(express.static(dist));
+// app.use((req, res) => res.sendFile(path.join(dist, 'index.html')));
+app.get('/', (req, res) => {
+  res.send('Skribbl Clone Backend is Running!');
+});
 // ---------- WebSockets ----------
 io.on('connection', (socket) => {
   const getRoom = () => rooms.get(socket.data.roomId);
